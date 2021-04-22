@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
+import { Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
+
+const { Filesystem } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -23,7 +26,7 @@ export class HomePage {
   /**
    * Event-Handler für Button "Eintrag speichern".
    */
-  private onEintragSpeichern() {
+  private async onEintragSpeichern() {
 
     const eintragTrimmed = this.eintrag.trim();
 
@@ -33,9 +36,34 @@ export class HomePage {
       return;
     }
 
+    await this.eintragSpeichern(eintragTrimmed);
+
     this.eintrag = "";
   }
 
+  /**
+   * Hängt `eintrag` an Tagebuchdatei an.
+   *
+   * @param eintrag Tagebucheintrag, der an Textdatei anzuhängen.
+   */
+  private async eintragSpeichern(eintrag: string) {
+
+    try {
+
+      await Filesystem.appendFile({
+        path: "tagebuch.txt",
+        data: eintrag,
+        directory: FilesystemDirectory.Documents,
+        encoding: FilesystemEncoding.UTF8
+      });
+
+      this.zeigeToast("Eintrag gespeichert.");
+    }
+    catch (ex) {
+
+      this.zeigeDialog("Fehler", "Fehler bei Schreibzugriff auf Datei: " + ex);
+    }
+  }
 
   /**
    * Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert
