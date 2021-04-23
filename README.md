@@ -16,10 +16,19 @@ Update to capacitor 3.x if needed (see also [here](https://capacitorjs.com/docs/
 npm install @capacitor/cli@next @capacitor/core@next
 ```
 
+<br>
+
 Adding the plugin to the project:
 ```
 npm install @capacitor/filesystem
 npx cap sync
+```
+
+<br>
+
+Get list of project's plugins:
+```
+npx cap ls android
 ```
 
 <br>
