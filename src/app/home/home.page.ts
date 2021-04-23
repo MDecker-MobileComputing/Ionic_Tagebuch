@@ -47,11 +47,13 @@ export class HomePage {
    */
   private async eintragSpeichern(eintrag: string) {
 
+    const trennstrich = this.getTrennstrich();
+
     try {
 
       await Filesystem.appendFile({
         path: "tagebuch.txt",
-        data: eintrag,
+        data: trennstrich + eintrag + "\n\n",
         directory: Directory.Documents,
         encoding: Encoding.UTF8
       });
@@ -65,7 +67,24 @@ export class HomePage {
   }
 
   /**
-   * Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert
+   * Hilfsmethode: String mit Trennstrich erzeugen, der vor einem neuen Tagebucheintrag in die Textdatei 
+   * geschrieben wird.
+   * 
+   * @returns Trennstrich mit Datum und Uhrzeit
+   */
+  private getTrennstrich(): string {
+
+    const datum = new Date();
+
+    const minutenStr = datum.getMinutes() < 10 ? `0${datum.getMinutes()}` : `${datum.getMinutes()}`;
+
+    const datumZeitStr = `${datum.getDate()}.${datum.getMonth() + 1}.${datum.getFullYear()} - ${datum.getHours()}:${minutenStr}`;
+
+    return `\n=================== ${datumZeitStr} ===================\n\n`;
+  }
+
+  /**
+   * Hilfsmethode: Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert
    *
    * @param titel Titel des Dialogs
    * @param nachricht Im Dialog anzuzeigender Text
@@ -84,7 +103,7 @@ export class HomePage {
 
 
   /**
-   * Toast anzeigen, siehe auch https://ionicframework.com/docs/api/toast
+   * Hilfsmethode: Toast anzeigen, siehe auch https://ionicframework.com/docs/api/toast
    *
    * @param nachricht Im Toast anzuzeigender Text
    */
