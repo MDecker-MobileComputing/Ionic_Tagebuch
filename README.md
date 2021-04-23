@@ -35,6 +35,22 @@ npx cap ls android
 
 ----
 
+## Entries needed in Manifest file of Android application ##
+
+For using the plugin `filesystem` in the app the following things in the [Manifest file](android/app/src/main/AndroidManifest.xml) have to be changed:
+
+Allowing access to folder `Documents` as of Android 10:
+```
+android:requestLegacyExternalStorage="true"
+```
+
+Declaring permission:
+```
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
+----
+
 ## License ##
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License) for the files in this repository.
