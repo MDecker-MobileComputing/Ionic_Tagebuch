@@ -22,8 +22,6 @@ npm install @capacitor/filesystem
 npx cap sync
 ```
 
-
-
 <br>
 
 ----
