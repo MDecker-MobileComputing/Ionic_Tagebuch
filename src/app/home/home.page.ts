@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
-import { Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
-const { Filesystem } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -15,7 +14,7 @@ export class HomePage {
   private eintrag = "";
 
 
- /**
+ /**const { Filesystem } = Plugins;
    * Konstruktor mit leerem Rumpf wird benötigt, um AlertController-
    * und ToastController-Instanz als Member-Variable zu erhalten.
    */
@@ -53,8 +52,8 @@ export class HomePage {
       await Filesystem.appendFile({
         path: "tagebuch.txt",
         data: eintrag,
-        directory: FilesystemDirectory.Documents,
-        encoding: FilesystemEncoding.UTF8
+        directory: Directory.Documents,
+        encoding: Encoding.UTF8
       });
 
       this.zeigeToast("Eintrag gespeichert.");
