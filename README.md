@@ -49,6 +49,17 @@ Declaring permission:
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
+<br>
+
+----
+
+## Text editor app ##
+
+The following app can be used to open the text file created by this app: 
+https://f-droid.org/de/packages/org.billthefarmer.editor/
+
+<br>
+
 ----
 
 ## License ##
