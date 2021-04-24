@@ -9,6 +9,14 @@ is used, see also [here](https://www.npmjs.com/package/@capacitor/filesystem).
 
 ----
 
+## Screenshots ##
+
+![Screenshot 1](screenshot_1.png)  ![Screenshot 2](screenshot_2.png)
+
+<br>
+
+----
+
 ## Adding the plugin ##
 
 Update to capacitor 3.x if needed (see also [here](https://capacitorjs.com/docs/v3/updating/3-0)):
