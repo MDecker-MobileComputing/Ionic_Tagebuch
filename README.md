@@ -62,6 +62,32 @@ https://f-droid.org/de/packages/org.billthefarmer.editor/
 
 ----
 
+## Using Live Reload ##
+
+Ensure that NPM module [native-run](https://www.npmjs.com/package/native-run) is installed globally.
+If it is not installed, then you can install it using the following command:
+```
+npm install -g @ionic/cli native-run
+```
+
+<br>
+
+For using *Live Reload* you then have to call the following command (*Android Studio* should be running but no project opened when entering this command):
+```
+ionic cap run android -l --external
+```
+At startup of this command you will have to select a local IP address.
+After this the project will be opened in *Android Studio*.
+Start the app in the emulator by clicking on the "Run" button in *Android Studio*.
+
+<br>
+
+When you now save a changed file of the Ionic application then the app in the emulator will be refreshed and uses the changed file(s) afterwards.
+
+<br>
+
+----
+
 ## License ##
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License) for the files in this repository.
