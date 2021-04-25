@@ -14,7 +14,7 @@ export class HomePage {
   private eintrag = "";
 
 
- /**const { Filesystem } = Plugins;
+  /**
    * Konstruktor mit leerem Rumpf wird benötigt, um AlertController-
    * und ToastController-Instanz als Member-Variable zu erhalten.
    */
