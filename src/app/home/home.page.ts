@@ -50,8 +50,9 @@ export class HomePage {
     let permissionStatus = await Filesystem.requestPermissions();
     if (permissionStatus.publicStorage !== "granted") {
 
-      this.zeigeDialog("Berechtigungsfehler", "Die App hat derzeit nicht die Berechtigung in den Documents-Ordner zu schreiben.");
-      return
+      this.zeigeDialog("Berechtigungsfehler", 
+                       "Die App hat derzeit nicht die Berechtigung in den Documents-Ordner zu schreiben.");
+      return;
     }
 
     const trennstrich = this.getTrennstrich();
