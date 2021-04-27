@@ -90,7 +90,7 @@ Start the app in the emulator by clicking on the "Run" button in *Android Studio
 
 <br>
 
-When you now save a changed file of the Ionic application then the app in the emulator will be refreshed and uses the changed file(s) afterwards.
+When you now save a changed file of the Ionic application, then the app in the emulator will be refreshed and uses the changed file(s) afterwards.
 
 <br>
 
